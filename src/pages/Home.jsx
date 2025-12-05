@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import FAQSection from '../components/FAQSection';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,7 +16,6 @@ const Home = () => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [openFAQs, setOpenFAQs] = useState({});
 
   // Auto-switch images every 5 seconds
   useEffect(() => {
@@ -33,19 +33,12 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
-  const toggleFAQ = (index) => {
-    setOpenFAQs((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1 bg-white pt-16 sm:pt-20 lg:pt-24">
+      <main id="main-content" className="flex-1 bg-white pt-20 sm:pt-24 lg:pt-28">
         {/* Hero Section */}
-        <section className="relative w-full h-[80vh] overflow-hidden mt-0 sm:mt-2 lg:mt-6">
+        <section className="relative w-full h-[60vh] sm:h-[80vh] overflow-hidden mt-0 sm:mt-2 lg:mt-6">
           <div className="relative w-full h-full">
             {/* Background Overlay */}
             <div className="absolute inset-0 bg-black/40 z-20"></div>
@@ -92,13 +85,15 @@ const Home = () => {
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
                   <button
                     onClick={() => navigate('/contactus')}
-                    className="bg-[#d4634d] hover:bg-[#c55540] text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
+                    style={{backgroundColor: 'var(--color-primary)'}}
+                    className="hover:opacity-90 text-white font-semibold px-2 sm:px-6 py-2 sm:py-3 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl text-xs sm:text-base"
                   >
                     Book Your Event
                   </button>
                   <button
                     onClick={() => navigate('/gallery')}
-                    className="bg-white/90 hover:bg-white text-[#2d4a3e] font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
+                    style={{color: 'var(--color-dark-green)'}}
+                    className="bg-white/90 hover:bg-white font-semibold px-2 sm:px-6 py-2 sm:py-3 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl text-xs sm:text-base"
                   >
                     View Gallery
                   </button>
@@ -119,9 +114,12 @@ const Home = () => {
                         setIsTransitioning(false);
                       }, 300);
                     }}
+                    style={{
+                      backgroundColor: index === currentImageIndex ? 'var(--color-accent)' : undefined
+                    }}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       index === currentImageIndex 
-                        ? 'bg-[#d4a574] scale-105' 
+                        ? 'scale-105' 
                         : 'bg-white/50 hover:bg-white/75'
                     }`}
                     aria-label={`Go to image ${index + 1}`}
@@ -136,9 +134,9 @@ const Home = () => {
         <div className="h-px bg-gray-200 mx-4 sm:mx-6 lg:mx-8"></div>
 
         {/* Dietary Options Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-green-600 text-center mb-12 font-delius">
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-600 text-center mb-8 font-delius">
               We Cater to All Tastes
             </h2>
 
@@ -160,8 +158,8 @@ const Home = () => {
               {/* Option 3 */}
               <div className="bg-blue-50 rounded-2xl shadow-sm p-8 text-center hover:shadow-md transition-all">
                 <div className="text-3xl mb-3">🧄</div>
-                <h3 className="font-bold text-gray-800 mb-2">Custom Add-ons</h3>
-                <p className="text-sm text-gray-600">Garlic bread, salads, and other delicious sides to complete your menu</p>
+                <h3 className="font-bold text-gray-800 mb-2">Add-ons</h3>
+                <p className="text-sm text-gray-600">Enhance your event with our signature Garlic Bread and Bruschetta. Perfect complements to your pizza experience</p>
               </div>
             </div>
           </div>
@@ -171,32 +169,38 @@ const Home = () => {
         <div className="h-px bg-gray-200 mx-4 sm:mx-6 lg:mx-8"></div>
 
         {/* Packages Section */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+        <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-green-600 text-center mb-12 font-delius">
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-600 text-center mb-6 font-delius">
               Our Event Packages
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* The Crowd Pleaser Card */}
+              {/* Classic Package Card */}
               <div className="bg-linear-to-br from-green-50 to-green-100 border-0 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 cursor-pointer group text-center font-delius">
-                <h3 className="text-2xl font-bold mb-2 text-gray-800 transition-all duration-300 group-hover:text-green-700">The Crowd Pleaser</h3>
-                <p className="text-4xl font-bold mb-1 text-green-600 transition-all duration-300 group-hover:text-green-700">$25 <span className="text-lg font-normal text-gray-600">per head</span></p>
-                <h4 className="text-lg font-semibold mb-3 text-gray-700 transition-all duration-300 group-hover:text-green-600">Unlimited Feast</h4>
+                <h3 className="text-2xl font-bold mb-2 text-gray-800 transition-all duration-300 group-hover:text-green-700">Classic Package</h3>
+                <p className="text-4xl font-bold mb-1 text-green-600 transition-all duration-300 group-hover:text-green-700">$22 <span className="text-lg font-normal text-gray-600">/ Person</span></p>
+                <h4 className="text-lg font-semibold mb-3 text-gray-700 transition-all duration-300 group-hover:text-green-600">Personal Gourmet</h4>
                 <p className="text-sm leading-relaxed text-gray-600 transition-all duration-300 group-hover:text-gray-700">
-                  All-you-can-eat wood-fire pizza. Perfect for weddings and large parties.
+                  Our Classic Package allows each guest to savor their personal, gourmet pizza for just $22 (+ GST). Perfect for diverse gatherings where individual taste reigns supreme, ensuring every palate is delighted.
                 </p>
               </div>
 
-              {/* Standard Package Card */}
+              {/* Unlimited Pizza Card */}
               <div className="bg-linear-to-br from-green-50 to-green-100 border-0 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 cursor-pointer group text-center font-delius">
-                <h3 className="text-2xl font-bold mb-2 text-gray-800 transition-all duration-300 group-hover:text-green-700">Standard Package</h3>
-                <p className="text-4xl font-bold mb-1 text-green-600 transition-all duration-300 group-hover:text-green-700">$20 <span className="text-lg font-normal text-gray-600">per head</span></p>
-                <h4 className="text-lg font-semibold mb-3 text-gray-700 transition-all duration-300 group-hover:text-green-600">Limited Selection</h4>
+                <h3 className="text-2xl font-bold mb-2 text-gray-800 transition-all duration-300 group-hover:text-green-700">Unlimited Pizza</h3>
+                <p className="text-4xl font-bold mb-1 text-green-600 transition-all duration-300 group-hover:text-green-700">$25 <span className="text-lg font-normal text-gray-600">/ Person</span></p>
+                <h4 className="text-lg font-semibold mb-3 text-gray-700 transition-all duration-300 group-hover:text-green-600">Endless Indulgence</h4>
                 <p className="text-sm text-gray-600 leading-relaxed transition-all duration-300 group-hover:text-gray-700">
-                  Limited pizza quantity per person. Great for corporate lunches or smaller events.
+                  For true pizza aficionados, the Unlimited Indulgence offers two hours of endless pizza delight, including our signature dessert pizzas. Priced at $25 per guest (+ GST), it's an invitation to revel in a grand feast of varied flavors.
                 </p>
               </div>
+            </div>
+
+            {/* Important Notes */}
+            <div className="mt-8 bg-amber-50 border-l-4 border-r-4 border-amber-500 p-4 rounded max-w-5xl mx-auto">
+              <p className="text-sm text-gray-700 text-center"><span className="font-semibold text-amber-700">Minimum Event Size:</span> We cater to events with a minimum of 30 guests.</p>
+              <p className="text-sm text-gray-700 mt-2 text-center"><span className="font-semibold text-amber-700">Public Holiday Surcharge:</span> A 15% surcharge applies to bookings on public holidays.</p>
             </div>
           </div>
         </section>
@@ -205,9 +209,9 @@ const Home = () => {
         <div className="h-px bg-gray-200 mx-4 sm:mx-6 lg:mx-8"></div>
 
         {/* What's Included Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-green-600 text-center mb-12 font-delius">
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-600 text-center mb-8 font-delius">
               Perfect For Every Occasion
             </h2>
 
@@ -247,9 +251,9 @@ const Home = () => {
         <div className="h-px bg-gray-200 mx-4 sm:mx-6 lg:mx-8"></div>
 
         {/* Ready to Book Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white text-center">
+        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white text-center">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-green-600 mb-4 font-delius">
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-600 mb-3 font-delius">
               Ready to Book Your Event?
             </h2>
             <p className="text-lg text-gray-600">
@@ -257,7 +261,8 @@ const Home = () => {
             </p>
             <button
               onClick={() => navigate('/contactus')}
-              className="mt-6 bg-[#d4634d] hover:bg-[#c55540] text-white font-bold px-16 py-3 rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto"
+              style={{backgroundColor: 'var(--color-primary)'}}
+              className="mt-6 hover:opacity-90 text-white font-bold px-16 py-3 rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto"
             >
               Check Availability 
             </button>
@@ -268,12 +273,12 @@ const Home = () => {
         <div className="h-px bg-gray-200 mx-4 sm:mx-6 lg:mx-8"></div>
 
         {/* Why Choose Us Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-green-800 text-center mb-4" style={{ fontFamily: 'Delius' }}>
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-700 text-center mb-3">
               Why Choose Rolling Dough?
             </h2>
-            <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+            <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto font-delius">
               Perth's most trusted pizza food truck for unforgettable catering experiences
             </p>
 
@@ -283,28 +288,28 @@ const Home = () => {
               <div className="text-center p-6 rounded-lg bg-linear-to-br from-blue-50 to-blue-100 hover:shadow-lg transition-shadow duration-300">
                 <p className="text-5xl sm:text-6xl font-bold text-green-600 mb-2">5+</p>
                 <p className="text-gray-700 font-semibold">Years Experience</p>
-                <p className="text-sm text-gray-600 mt-1">Serving Perth with excellence</p>
+                <p className="text-sm text-gray-600 mt-1 font-delius">Serving Perth with excellence</p>
               </div>
 
               {/* Stat 2 */}
               <div className="text-center p-6 rounded-lg bg-linear-to-br from-amber-50 to-amber-100 hover:shadow-lg transition-shadow duration-300">
                 <p className="text-5xl sm:text-6xl font-bold text-orange-600 mb-2">500+</p>
                 <p className="text-gray-700 font-semibold">Happy Customers</p>
-                <p className="text-sm text-gray-600 mt-1">Events successfully catered</p>
+                <p className="text-sm text-gray-600 mt-1 font-delius">Events successfully catered</p>
               </div>
 
               {/* Stat 3 */}
               <div className="text-center p-6 rounded-lg bg-linear-to-br from-green-50 to-green-100 hover:shadow-lg transition-shadow duration-300">
                 <p className="text-5xl sm:text-6xl font-bold text-emerald-600 mb-2">7 Days</p>
                 <p className="text-gray-700 font-semibold">Availability</p>
-                <p className="text-sm text-gray-600 mt-1">Including weekends & holidays</p>
+                <p className="text-sm text-gray-600 mt-1 font-delius">Including weekends & holidays</p>
               </div>
 
               {/* Stat 4 */}
               <div className="text-center p-6 rounded-lg bg-linear-to-br from-rose-50 to-rose-100 hover:shadow-lg transition-shadow duration-300">
                 <p className="text-5xl sm:text-6xl font-bold text-rose-600 mb-2">100%</p>
                 <p className="text-gray-700 font-semibold">Satisfaction Rate</p>
-                <p className="text-sm text-gray-600 mt-1">Your event, our priority</p>
+                <p className="text-sm text-gray-600 mt-1 font-delius">Your event, our priority</p>
               </div>
             </div>
 
@@ -320,8 +325,8 @@ const Home = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800" style={{ fontFamily: 'Delius' }}>Fresh Quality</h3>
-                  <p className="text-gray-600 text-sm mt-1">Made-to-order pizzas with premium ingredients</p>
+                  <h3 className="text-lg font-bold text-gray-800">Fresh Quality</h3>
+                  <p className="text-gray-600 text-sm mt-1 font-delius">Made-to-order pizzas with premium ingredients</p>
                 </div>
               </div>
 
@@ -335,8 +340,8 @@ const Home = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800" style={{ fontFamily: 'Delius' }}>Customizable</h3>
-                  <p className="text-gray-600 text-sm mt-1">Vegan, gluten-free & dietary options</p>
+                  <h3 className="text-lg font-bold text-gray-800">Customizable</h3>
+                  <p className="text-gray-600 text-sm mt-1 font-delius">Vegan, gluten-free & dietary options</p>
                 </div>
               </div>
 
@@ -350,8 +355,8 @@ const Home = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800" style={{ fontFamily: 'Delius' }}>Professional Service</h3>
-                  <p className="text-gray-600 text-sm mt-1">Trained crew for seamless execution</p>
+                  <h3 className="text-lg font-bold text-gray-800">Professional Service</h3>
+                  <p className="text-gray-600 text-sm mt-1 font-delius">Trained crew for seamless execution</p>
                 </div>
               </div>
 
@@ -365,8 +370,8 @@ const Home = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800" style={{ fontFamily: 'Delius' }}>Affordable Pricing</h3>
-                  <p className="text-gray-600 text-sm mt-1">Transparent rates from $25/head</p>
+                  <h3 className="text-lg font-bold text-gray-800">Affordable Pricing</h3>
+                  <p className="text-gray-600 text-sm mt-1 font-delius">Transparent rates from $25/head</p>
                 </div>
               </div>
 
@@ -381,8 +386,8 @@ const Home = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800" style={{ fontFamily: 'Delius' }}>Perth-Wide Coverage</h3>
-                  <p className="text-gray-600 text-sm mt-1">Service all areas of Perth</p>
+                  <h3 className="text-lg font-bold text-gray-800">Perth-Wide Coverage</h3>
+                  <p className="text-gray-600 text-sm mt-1 font-delius">Service all areas of Perth</p>
                 </div>
               </div>
 
@@ -396,8 +401,8 @@ const Home = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800" style={{ fontFamily: 'Delius' }}>Unforgettable Experience</h3>
-                  <p className="text-gray-600 text-sm mt-1">Creates lasting memories for your guests</p>
+                  <h3 className="text-lg font-bold text-gray-800">Unforgettable Experience</h3>
+                  <p className="text-gray-600 text-sm mt-1 font-delius">Creates lasting memories for your guests</p>
                 </div>
               </div>
             </div>
@@ -408,111 +413,7 @@ const Home = () => {
         <div className="h-px bg-gray-200 mx-4 sm:mx-6 lg:mx-8"></div>
 
         {/* FAQ Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-green-600 text-center mb-12 font-delius">
-              Frequently Asked Questions
-            </h2>
-
-            <div className="space-y-4">
-              {/* FAQ Item 1 */}
-              <div className="bg-gray-50 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-md">
-                <button
-                  onClick={() => toggleFAQ(0)}
-                  className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-all duration-500 ease-in-out"
-                >
-                  <h3 className="text-lg font-bold text-gray-800 font-delius transition-colors duration-500">How far in advance should I book?</h3>
-                  <span className={`text-2xl text-green-600 transition-all duration-300 ease-out transform ${openFAQs[0] ? 'rotate-45 scale-110' : 'scale-100'}`}>+</span>
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openFAQs[0] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="px-6 pt-6 pb-6 border-t border-gray-200 animate-in fade-in slide-in-from-top-2 duration-500">
-                    <p className="text-gray-600">We recommend booking at least 2-4 weeks in advance to ensure availability. However, we do accommodate last-minute requests when possible.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* FAQ Item 2 */}
-              <div className="bg-gray-50 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-md">
-                <button
-                  onClick={() => toggleFAQ(1)}
-                  className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-all duration-500 ease-in-out"
-                >
-                  <h3 className="text-lg font-bold text-gray-800 font-delius transition-colors duration-500">What's the minimum guest count?</h3>
-                  <span className={`text-2xl text-green-600 transition-all duration-300 ease-out transform ${openFAQs[1] ? 'rotate-45 scale-110' : 'scale-100'}`}>+</span>
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openFAQs[1] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="px-6 pt-6 pb-6 border-t border-gray-200 animate-in fade-in slide-in-from-top-2 duration-500">
-                    <p className="text-gray-600">Our minimum is 50 guests. We offer both unlimited ($25 per head) and limited selection ($20 per head) packages to suit your event.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* FAQ Item 3 */}
-              <div className="bg-gray-50 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-md">
-                <button
-                  onClick={() => toggleFAQ(2)}
-                  className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-all duration-500 ease-in-out"
-                >
-                  <h3 className="text-lg font-bold text-gray-800 font-delius transition-colors duration-500">Do you cater to dietary requirements?</h3>
-                  <span className={`text-2xl text-green-600 transition-all duration-300 ease-out transform ${openFAQs[2] ? 'rotate-45 scale-110' : 'scale-100'}`}>+</span>
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openFAQs[2] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="px-6 pt-6 pb-6 border-t border-gray-200 animate-in fade-in slide-in-from-top-2 duration-500">
-                    <p className="text-gray-600">Absolutely! We offer vegan, gluten-free, and custom pizzas. Please let us know your dietary needs when booking.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* FAQ Item 4 */}
-              <div className="bg-gray-50 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-md">
-                <button
-                  onClick={() => toggleFAQ(3)}
-                  className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-all duration-500 ease-in-out"
-                >
-                  <h3 className="text-lg font-bold text-gray-800 font-delius transition-colors duration-500">What areas do you service?</h3>
-                  <span className={`text-2xl text-green-600 transition-all duration-300 ease-out transform ${openFAQs[3] ? 'rotate-45 scale-110' : 'scale-100'}`}>+</span>
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openFAQs[3] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="px-6 pt-6 pb-6 border-t border-gray-200 animate-in fade-in slide-in-from-top-2 duration-500">
-                    <p className="text-gray-600">We service Perth and surrounding areas. Contact us to confirm if your location is within our service radius.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* FAQ Item 5 */}
-              <div className="bg-gray-50 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-md">
-                <button
-                  onClick={() => toggleFAQ(4)}
-                  className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-all duration-500 ease-in-out"
-                >
-                  <h3 className="text-lg font-bold text-gray-800 font-delius transition-colors duration-500">What's your deposit policy?</h3>
-                  <span className={`text-2xl text-green-600 transition-all duration-300 ease-out transform ${openFAQs[4] ? 'rotate-45 scale-110' : 'scale-100'}`}>+</span>
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openFAQs[4] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="px-6 pt-6 pb-6 border-t border-gray-200 animate-in fade-in slide-in-from-top-2 duration-500">
-                    <p className="text-gray-600">We require a 20% deposit to secure your booking date. The remaining balance is due one week before your event.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* FAQ Item 6 */}
-              <div className="bg-gray-50 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-md">
-                <button
-                  onClick={() => toggleFAQ(5)}
-                  className="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-all duration-500 ease-in-out"
-                >
-                  <h3 className="text-lg font-bold text-gray-800 font-delius transition-colors duration-500">Can you provide add-ons like salads and garlic bread?</h3>
-                  <span className={`text-2xl text-green-600 transition-all duration-300 ease-out transform ${openFAQs[5] ? 'rotate-45 scale-110' : 'scale-100'}`}>+</span>
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openFAQs[5] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <div className="px-6 pt-6 pb-6 border-t border-gray-200 animate-in fade-in slide-in-from-top-2 duration-500">
-                    <p className="text-gray-600">Yes! We offer custom add-ons including garlic bread, salads, and other sides to complement your pizza catering.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <FAQSection variant="home" />
       </main>
       <Footer />
     </div>

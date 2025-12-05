@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
 @import "tailwindcss";
 
-
-@theme {
+:root {
   --font-delius: "Delius", cursive;
+  --color-primary: #d4634d;
+  --color-dark-green: #2d4a3e;
+  --color-accent: #d4a574;
+  --color-light: #f5f1e8;
 }
 
 
@@ -26,6 +29,23 @@
 .animate-fade-in-delay {
   animation: fadeIn 1s ease-out 0.3s forwards;
   opacity: 0;
+}
+
+/* Remove spinner buttons from number input */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* Disable scroll wheel on number input */
+input[type="number"]:focus {
+  outline: none;
 }
 
 .animate-fade-in-delay-2 {

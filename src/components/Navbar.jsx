@@ -19,34 +19,42 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#2d4a3e] px-4 lg:px-8 py-4 flex items-center justify-between shadow-lg">
-        <div className="flex items-center gap-3">
-          <div className="shrink-0 cursor-pointer" onClick={() => handleNavigation('/')}>
-            <img src="/logo.png" alt="Rolling Dough Logo" className="h-auto max-h-14 mt-[-15px] w-auto object-contain transition-transform" />
-          </div>
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 lg:px-8 pt-4 pb-2 flex items-center justify-between shadow-lg bg-(--color-dark-green)">
+        <div
+          className="shrink-0 cursor-pointer"
+          onClick={() => handleNavigation('/')}
+        >
+          <img
+            src="/logo.png"
+            alt="Rolling Dough Logo"
+            className="h-auto max-h-14 w-auto object-contain transition-transform"
+          />
         </div>
 
-        <div className="hidden lg:flex space-x-8 items-center">
+        <div className="hidden lg:flex space-x-8 items-center pr-4">
           {navLinks.map(({ label, path }) => (
-            <span
+            <button
               key={label}
               onClick={() => handleNavigation(path)}
-              className="text-[#f5f1e8] font-delius hover:text-[#d4a574] font-bold uppercase tracking-wide cursor-pointer border-b-2 border-transparent hover:border-[#d4a574] pb-1 transition-all duration-300"
+              className="font-delius text-(--color-light) hover:text-(--color-accent) px-3 py-2 font-bold uppercase tracking-wide cursor-pointer border-b-2 border-transparent hover:border-(--color-accent) pb-1 transition-all duration-300"
+              type="button"
             >
               {label}
-            </span>
+            </button>
           ))}
         </div>
 
         <button
           type="button"
-          className="lg:hidden text-[#f5f1e8] hover:text-[#d4a574] transition-colors focus:outline-none cursor-pointer p-1"
+          className="lg:hidden text-(--color-light) hover:opacity-70 active:opacity-60 transition-all duration-200 cursor-pointer p-2 "
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-nav-menu"
         >
           {isMenuOpen ? (
             <svg
-              className="w-6 h-6 transition-all duration-300 ease-out transform rotate-90"
+              className="w-7 h-7 transition-all duration-300 ease-out transform rotate-90"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -61,7 +69,7 @@ const Navbar = () => {
             </svg>
           ) : (
             <svg
-              className="w-6 h-6 transition-all duration-300 ease-out transform rotate-0"
+              className="w-7 h-7 transition-all duration-300 ease-out transform rotate-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -79,29 +87,44 @@ const Navbar = () => {
       </nav>
 
       <div
-        className={`fixed inset-0 bg-[#1a2922]/60 transition-opacity duration-300 lg:hidden z-40 top-[72px] ${
+        className={`fixed inset-0 bg-[#1a2922]/60 transition-opacity duration-300 lg:hidden z-40 top-20 ${
           isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsMenuOpen(false)}
       />
 
       <aside
-        className={`fixed top-[72px] right-0 h-[calc(100vh-72px)] w-64 bg-green-50 shadow-2xl lg:hidden transform transition-all duration-300 ease-out z-50 ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed top-20 right-0 h-[calc(100vh-80px)] w-48 bg-linear-to-b from-green-50 to-green-100 shadow-2xl lg:hidden transform transition-all duration-300 ease-out z-50 ${
+          isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
         }`}
+        id="mobile-nav-menu"
       >
-        <nav className="flex flex-col px-6 pt-8 space-y-6">
-          {navLinks.map(({ label, path }) => (
-            <span
+        <nav className="flex flex-col px-4 pt-6 pb-4 space-y-1 h-full overflow-y-auto">
+          {navLinks.map(({ label, path }, index) => (
+            <button
               key={`mobile-${label}`}
               onClick={() => handleNavigation(path)}
-              className="text-green-800 hover:text-green-600 font-semibold text-base uppercase tracking-wide cursor-pointer border-b-2 border-transparent hover:border-green-600 pb-3 transition-all duration-300"
+              className="w-full text-left text-(--color-dark-green) hover:text-(--color-accent) px-4 py-3.5 font-semibold text-base uppercase tracking-wide cursor-pointer border-b-2 border-transparent hover:border-(--color-accent) transition-all duration-300 "
+              type="button"
             >
               {label}
-            </span>
+            </button>
           ))}
         </nav>
       </aside>
+      
+      <style>{`
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      `}</style>
     </>
   );
 };

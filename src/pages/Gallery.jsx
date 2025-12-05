@@ -1,6 +1,41 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+
+// Memoized Gallery Item Component
+const GalleryItem = memo(({ item, index }) => {
+  const rowSpan = index % 5 === 0 ? 2 : 1;
+
+  return (
+    <div
+      className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer bg-gray-100"
+      style={{ gridRow: `span ${rowSpan}` }}
+    >
+      {/* Image Container */}
+      <div className="relative overflow-hidden w-full h-full">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+        />
+        
+        {/* Overlay on hover */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end justify-start p-4">
+          <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 className="text-lg sm:text-xl font-bold">
+              {item.title}
+            </h3>
+            <p className="text-sm sm:text-base text-gray-200">
+              {item.category}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+GalleryItem.displayName = 'GalleryItem';
 
 const Gallery = () => {
   // Sample gallery items with different aspect ratios for masonry
@@ -82,14 +117,14 @@ const Gallery = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1 bg-white pt-16 sm:pt-20 lg:pt-24">
+      <main id="main-content" className="flex-1 bg-white pt-20 sm:pt-24 lg:pt-28">
         {/* Gallery Header */}
-        <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <div className="text-center">
-            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-800 mb-4" style={{ fontFamily: 'Delius' }}>
+        <section className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 border-b border-gray-200">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-green-800 mb-4">
               Our Gallery
             </h1>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto font-delius">
               Explore our amazing events and catering moments from across Perth
             </p>
           </div>
@@ -106,38 +141,9 @@ const Gallery = () => {
             }}
             className="sm:gap-4 lg:gap-6"
           >
-            {galleryItems.map((item, index) => {
-              // Calculate random span for masonry effect
-              const rowSpan = index % 5 === 0 ? 2 : 1;
-              return (
-                <div
-                  key={item.id}
-                  className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer bg-gray-100"
-                  style={{ gridRow: `span ${rowSpan}` }}
-                >
-                  {/* Image Container */}
-                  <div className="relative overflow-hidden w-full h-full">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
-                    />
-                    
-                    {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end justify-start p-4">
-                      <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 className="text-lg sm:text-xl font-bold" style={{ fontFamily: 'Delius' }}>
-                          {item.title}
-                        </h3>
-                        <p className="text-sm sm:text-base text-gray-200">
-                          {item.category}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            {galleryItems.map((item, index) => (
+              <GalleryItem key={item.id} item={item} index={index} />
+            ))}
           </div>
         </section>
       </main>
