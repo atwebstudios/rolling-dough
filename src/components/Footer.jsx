@@ -90,12 +90,12 @@ const Footer = () => {
               <p style={{color: 'var(--color-light)', opacity: 0.9}} className="text-sm my-1">
                 © 2025 Rolling Dough. All rights reserved.
               </p>
-              <p style={{color: 'var(--color-light)', opacity: 0.9}} className="text-sm mt-2">
+              {/* <p style={{color: 'var(--color-light)', opacity: 0.9}} className="text-sm mt-2">
                 Made with ❤️ by{' '}
                 <span style={{color: 'var(--color-accent)'}} className="hover:opacity-80 cursor-pointer transition-colors">
                   AtWebStudios
                 </span>
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
