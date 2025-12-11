@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { updateMetaTags, scrollToTop } from '../utils/seoUtils';
 
 const About = () => {
+  // Update SEO meta tags on page load
+  useEffect(() => {
+    updateMetaTags({
+      title: 'About Rolling Dough - Our Story & Mission',
+      description: 'Discover Rolling Dough\'s story. 20+ years of woodfire pizza expertise bringing authentic Italian flavors to Perth events since 2019.',
+      url: 'https://rollingdough.com.au/about',
+      image: 'https://rollingdough.com.au/hero.png',
+      keywords: 'about rolling dough, woodfire pizza chef, Perth catering, pizza artisan, event catering Perth'
+    });
+    scrollToTop();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -41,14 +54,9 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Image Placeholder */}
-              <div className="bg-linear-to-br from-green-100 to-green-50 rounded-lg h-80 flex items-center justify-center border-2 border-green-200">
-                <div className="text-center">
-                  <svg className="w-24 h-24 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m6.364 1.636l-.707.707M21 12h-1m1.364 6.364l-.707-.707M12 21v-1m-6.364-1.636l.707-.707M3 12h1M3.636 5.636l.707.707M12 9a3 3 0 100 6 3 3 0 000-6z" />
-                  </svg>
-                  <p className="text-green-600 font-semibold">Your Event Image Here</p>
-                </div>
+              {/* Image */}
+              <div className="rounded-lg h-80 overflow-hidden shadow-lg">
+                <img src="/hero.png" alt="Rolling Dough event catering" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>

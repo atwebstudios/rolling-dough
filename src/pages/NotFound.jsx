@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { updateMetaTags, scrollToTop } from '../utils/seoUtils';
 
 const NotFound = () => {
   const navigate = useNavigate();
+
+  // Update SEO meta tags on page load
+  useEffect(() => {
+    updateMetaTags({
+      title: 'Page Not Found - Rolling Dough',
+      description: 'The page you are looking for does not exist. Return to Rolling Dough\'s main site to explore our woodfire pizza catering services.',
+      url: 'https://rollingdough.com.au/404',
+      image: 'https://rollingdough.com.au/hero.png',
+      keywords: 'page not found, 404 error, rolling dough'
+    });
+    scrollToTop();
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
