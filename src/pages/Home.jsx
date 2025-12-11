@@ -1,67 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FAQSection from '../components/FAQSection';
+import { updateMetaTags, scrollToTop } from '../utils/seoUtils';
 
 const Home = () => {
   const navigate = useNavigate();
-  
-  // Hero images array
-  const heroImages = [
-    '/hero.png',
-    '/hero copy.png',
-    '/hero copy 2.png'
-  ];
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  // Auto-switch images every 5 seconds
+  // Update SEO meta tags on page load
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
-      
-      setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => 
-          prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
-        );
-        setIsTransitioning(false);
-      }, 300); // Half transition duration
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [heroImages.length]);
+    updateMetaTags({
+      title: 'Rolling Dough - Premium Woodfire Pizza Catering in Perth',
+      description: 'Premium woodfire pizza catering for events in Perth. Authentic Italian-inspired pizzas for weddings, corporate events, and celebrations. Book your event now!',
+      url: 'https://rollingdough.com.au/',
+      image: 'https://rollingdough.com.au/hero.png',
+      keywords: 'woodfire pizza catering, Perth events, pizza catering, wedding catering, corporate catering, event food'
+    });
+    scrollToTop();
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main id="main-content" className="flex-1 bg-white pt-20 sm:pt-24 lg:pt-28">
         {/* Hero Section */}
-        <section className="relative w-full h-[60vh] sm:h-[80vh] overflow-hidden mt-0 sm:mt-2 lg:mt-6">
+        <section 
+          className="relative w-full h-[60vh] sm:h-[80vh] overflow-hidden mt-0 sm:mt-2 lg:mt-6 bg-cover bg-center"
+          style={{ backgroundImage: "url('/hero.png')" }}
+        >
           <div className="relative w-full h-full">
             {/* Background Overlay */}
             <div className="absolute inset-0 bg-black/40 z-20"></div>
-            
-            {/* Background Images */}
-            <div className="absolute inset-0 z-10">
-              {heroImages.map((image, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                    index === currentImageIndex && !isTransitioning 
-                      ? 'opacity-100' 
-                      : 'opacity-0'
-                  }`}
-                >
-                  <img
-                    src={image}
-                    alt={`Hero ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
 
             {/* Hero Content */}
             <div className="relative z-30 h-full flex items-end justify-start px-4 sm:px-8 lg:px-16 pb-12 sm:pb-20">
@@ -98,33 +68,6 @@ const Home = () => {
                     View Gallery
                   </button>
                 </div>
-              </div>
-            </div>
-
-            {/* Image Indicators */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
-              <div className="flex space-x-2">
-                {heroImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setIsTransitioning(true);
-                      setTimeout(() => {
-                        setCurrentImageIndex(index);
-                        setIsTransitioning(false);
-                      }, 300);
-                    }}
-                    style={{
-                      backgroundColor: index === currentImageIndex ? 'var(--color-accent)' : undefined
-                    }}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentImageIndex 
-                        ? 'scale-105' 
-                        : 'bg-white/50 hover:bg-white/75'
-                    }`}
-                    aria-label={`Go to image ${index + 1}`}
-                  />
-                ))}
               </div>
             </div>
           </div>
