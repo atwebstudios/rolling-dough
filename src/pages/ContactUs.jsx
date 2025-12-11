@@ -5,6 +5,7 @@ import CustomDatePicker from '../components/CustomDatePicker';
 import CustomDropdown from '../components/CustomDropdown';
 import FAQSection from '../components/FAQSection';
 import { validateName, validateEmail, validatePhone, validateGuestCount } from '../utils/validations';
+import { updateMetaTags, scrollToTop } from '../utils/seoUtils';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +19,17 @@ const ContactUs = () => {
     message: ''
   });
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  // Update SEO meta tags on page load
+  useEffect(() => {
+    updateMetaTags({
+      title: 'Contact Rolling Dough - Book Your Event Catering',
+      description: 'Get your event catering quote from Rolling Dough. Contact us to book premium woodfire pizza catering for your Perth event. Quick response guaranteed!',
+      url: 'https://rollingdough.com.au/contact',
+      image: 'https://rollingdough.com.au/hero.png',
+      keywords: 'book pizza catering, contact rolling dough, event catering quote, Perth pizza catering, catering booking'
+    });
+    scrollToTop();
+  }, []);  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [fieldErrors, setFieldErrors] = useState({});

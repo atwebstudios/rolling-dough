@@ -1,0 +1,14 @@
+# Robots.txt for Rolling Dough Website
+# Allow all search engines to crawl the website
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://rollingdough.com.au/sitemap.xml
+
+# Crawl delay (optional - wait time between requests in seconds)
+Crawl-delay: 1
+
+# Comment: All pages are publicly accessible and should be indexed
