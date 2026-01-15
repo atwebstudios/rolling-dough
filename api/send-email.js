@@ -61,6 +61,7 @@ async function handleEmailRequest(req, res) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const senderEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
     const businessEmail = process.env.RESEND_BUSINESS_EMAIL;
+    const confirmationEmail = process.env.RESEND_CONFIRMATION_EMAIL;
     const businessPhone = '0478 540 160';
     const businessPhone2 =  '0433 770 065';
 
@@ -99,7 +100,7 @@ async function handleEmailRequest(req, res) {
 
     try {
       await resend.emails.send({
-        from: senderEmail,
+        from: confirmationEmail,
         to: email,
         subject: 'We Received Your Event Inquiry - Rolling Dough',
         html: `
