@@ -48,7 +48,7 @@ const Home = () => {
                   Fresh ingredients, authentic flavors, and memorable experiences.
                 </p>
                 <p className="text-xs sm:text-base text-white/90 mb-4 sm:mb-6 font-light font-delius">
-                  Bringing the heat to your celebrations since 2020
+                  Bringing the heat to your celebrations since 2019
                 </p>
 
                 {/* CTA Buttons */}
