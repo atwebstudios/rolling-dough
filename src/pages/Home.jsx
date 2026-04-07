@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main id="main-content" className="flex-1 bg-white pt-20 sm:pt-24 lg:pt-28">
+      <main id="main-content" className="flex-1 bg-white pt-16 sm:pt-20 lg:pt-20">
         {/* Hero Section */}
         <section 
           className="relative w-full h-[60vh] sm:h-[80vh] overflow-hidden mt-0 sm:mt-2 lg:mt-6 bg-cover bg-center"
@@ -127,6 +127,17 @@ const Home = () => {
                 <p className="text-sm leading-relaxed text-gray-600 transition-all duration-300 group-hover:text-gray-700">
                   Our Classic Package allows each guest to savor their personal, gourmet pizza for just $22 (+ GST). Perfect for diverse gatherings where individual taste reigns supreme, ensuring every palate is delighted.
                 </p>
+                <a
+                  href="/classic_pizza_menu.png"
+                  download="Rolling_Dough_Classic_Menu.png"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 border-2 border-green-600 text-green-700 text-sm font-semibold rounded-full hover:bg-green-600 hover:text-white transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
+                >
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Download Menu
+                </a>
               </div>
 
               {/* Unlimited Pizza Card */}
@@ -137,6 +148,17 @@ const Home = () => {
                 <p className="text-sm text-gray-600 leading-relaxed transition-all duration-300 group-hover:text-gray-700">
                   For true pizza aficionados, the Unlimited Indulgence offers two hours of endless pizza delight, including our signature dessert pizzas. Priced at $25 per guest (+ GST), it's an invitation to revel in a grand feast of varied flavors.
                 </p>
+                <a
+                  href="/unlimited_pizza_menu.png"
+                  download="Rolling_Dough_Unlimited_Menu.png"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 border-2 border-green-600 text-green-700 text-sm font-semibold rounded-full hover:bg-green-600 hover:text-white transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
+                >
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Download Menu
+                </a>
               </div>
             </div>
 
