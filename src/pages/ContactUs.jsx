@@ -154,7 +154,7 @@ const ContactUs = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main id="main-content" className="flex-1 bg-white pt-20 sm:pt-24 lg:pt-28">
+      <main id="main-content" className="flex-1 bg-white pt-16 sm:pt-20 lg:pt-20">
         <section className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 border-b border-gray-200">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-green-800 mb-4">
@@ -399,7 +399,7 @@ const ContactUs = () => {
                         <label className="block text-sm font-semibold text-gray-700 mb-3">
                           Add-ons
                         </label>
-                        <div className="flex gap-4">
+                        <div className="flex flex-wrap gap-x-6 gap-y-3">
                           <div className="flex items-center">
                             <input
                               type="checkbox"
