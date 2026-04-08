@@ -25,7 +25,7 @@ const ContactUs = () => {
       title: 'Contact Rolling Dough - Book Your Event Catering',
       description: 'Get your event catering quote from Rolling Dough. Contact us to book premium woodfire pizza catering for your Perth event. Quick response guaranteed!',
       url: 'https://rollingdough.com.au/contact',
-      image: 'https://rollingdough.com.au/hero.png',
+      image: 'https://rollingdough.com.au/hero.webp',
       keywords: 'book pizza catering, contact rolling dough, event catering quote, Perth pizza catering, catering booking'
     });
     scrollToTop();
@@ -389,8 +389,8 @@ const ContactUs = () => {
                         error={fieldErrors.package}
                         options={[
                           { value: '', label: 'Select a package' },
-                          { value: 'Classic Package - $22/Person (+ GST)', label: 'Classic Package - $22/Person (+ GST)' },
-                          { value: 'Unlimited Pizza - $25/Person (+ GST)', label: 'Unlimited Pizza - $25/Person (+ GST)' },
+                          { value: 'Classic Package - $26/Person (+ GST)', label: 'Classic Package - $26/Person (+ GST)' },
+                          { value: 'Unlimited Pizza - $28/Person (+ GST)', label: 'Unlimited Pizza - $28/Person (+ GST)' },
                           { value: 'Event Special - Pricing upon request', label: 'Event Special - Pricing upon request' }
                         ]}
                       />

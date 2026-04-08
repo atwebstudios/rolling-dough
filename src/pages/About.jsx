@@ -8,9 +8,9 @@ const About = () => {
   useEffect(() => {
     updateMetaTags({
       title: 'About Rolling Dough - Our Story & Mission',
-      description: 'Discover Rolling Dough\'s story. 20+ years of woodfire pizza expertise bringing authentic Italian flavors to Perth events since 2019.',
+      description: 'Discover Rolling Dough\'s story. 20+ years of woodfire pizza expertise bringing authentic Italian flavors to Perth events since 2020.',
       url: 'https://rollingdough.com.au/about',
-      image: 'https://rollingdough.com.au/hero.png',
+      image: 'https://rollingdough.com.au/hero.webp',
       keywords: 'about rolling dough, woodfire pizza chef, Perth catering, pizza artisan, event catering Perth'
     });
     scrollToTop();
@@ -27,7 +27,7 @@ const About = () => {
               About Rolling Dough
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto font-delius">
-              Bringing authentic woodfire pizza to Perth's best events since 2019
+              Bringing authentic woodfire pizza to Perth's best events since 2020
             </p>
           </div>
         </section>
@@ -56,7 +56,7 @@ const About = () => {
 
               {/* Image */}
               <div className="rounded-lg h-80 overflow-hidden shadow-lg">
-                <img src="/hero.png" alt="Rolling Dough event catering" className="w-full h-full object-cover" />
+                <img src="/hero.webp" alt="Rolling Dough event catering" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -130,8 +130,8 @@ const About = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-gray-800 mb-2">5+ Years Experience</h3>
-                  <p className="text-gray-600 text-sm font-delius">Trusted by Perth's best events with consistent 5-star experiences since 2019.</p>
+                  <h3 className="text-base font-bold text-gray-800 mb-2">{new Date().getFullYear() - 2020}+ Years Experience</h3>
+                  <p className="text-gray-600 text-sm font-delius">Trusted by Perth's best events with consistent 5-star experiences since 2020.</p>
                 </div>
               </div>
 
@@ -176,7 +176,7 @@ const About = () => {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-gray-800 mb-2">Competitive Pricing</h3>
-                  <p className="text-gray-600 text-sm font-delius">Premium quality at great value. $25 per head (unlimited) or $20 per head (limited selection), with $800 minimum.</p>
+                  <p className="text-gray-600 text-sm font-delius">Premium quality at great value. $28 per head (unlimited) or $20 per head (limited selection), with $800 minimum.</p>
                 </div>
               </div>
 

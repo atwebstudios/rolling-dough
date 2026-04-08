@@ -10,25 +10,25 @@ const GalleryItem = memo(({ image, index }) => {
   // Enhanced alt text based on image src
   let altText = '';
   if (image.includes('hero')) altText = 'Rolling Dough woodfire pizza oven at event';
-  else if (image.includes('1.jpg')) altText = 'Woodfire pizza served at Perth wedding';
-  else if (image.includes('2.jpg')) altText = 'Rolling Dough catering at corporate event';
-  else if (image.includes('3.jpg')) altText = 'Fresh pizza being prepared by chef';
-  else if (image.includes('4.jpg')) altText = 'Guests enjoying pizza at outdoor party';
-  else if (image.includes('5.jpg')) altText = 'Woodfire oven in action';
-  else if (image.includes('6.jpg')) altText = 'Rolling Dough pizza menu display';
-  else if (image.includes('7.jpg')) altText = 'Family event with Rolling Dough catering';
-  else if (image.includes('8.jpg')) altText = 'Gluten-free pizza option';
-  else if (image.includes('9.jpg')) altText = 'Vegetarian pizza served at event';
-  else if (image.includes('10.jpg')) altText = 'Rolling Dough team at event';
-  else if (image.includes('11.jpg')) altText = 'Pizza oven setup at outdoor venue';
-  else if (image.includes('12.jpg')) altText = 'Pizza slices ready to serve';
-  else if (image.includes('13.jpg')) altText = 'Rolling Dough catering truck';
-  else if (image.includes('14.jpg')) altText = 'Kids enjoying pizza at birthday party';
-  else if (image.includes('15.png')) altText = 'Rolling Dough logo and branding';
-  else if (image.includes('16.jpg')) altText = 'Pizza chef preparing dough';
-  else if (image.includes('17.jpg')) altText = 'Event guests with pizza plates';
-  else if (image.includes('18.jpg')) altText = 'Woodfire pizza close-up';
-  else if (image.includes('19.jpg')) altText = 'Rolling Dough catering at night event';
+  else if (image.includes('1.webp')) altText = 'Woodfire pizza served at Perth wedding';
+  else if (image.includes('2.webp')) altText = 'Rolling Dough catering at corporate event';
+  else if (image.includes('3.webp')) altText = 'Fresh pizza being prepared by chef';
+  else if (image.includes('4.webp')) altText = 'Guests enjoying pizza at outdoor party';
+  else if (image.includes('5.webp')) altText = 'Woodfire oven in action';
+  else if (image.includes('6.webp')) altText = 'Rolling Dough pizza menu display';
+  else if (image.includes('7.webp')) altText = 'Family event with Rolling Dough catering';
+  else if (image.includes('8.webp')) altText = 'Gluten-free pizza option';
+  else if (image.includes('9.webp')) altText = 'Vegetarian pizza served at event';
+  else if (image.includes('10.webp')) altText = 'Rolling Dough team at event';
+  else if (image.includes('11.webp')) altText = 'Pizza oven setup at outdoor venue';
+  else if (image.includes('12.webp')) altText = 'Pizza slices ready to serve';
+  else if (image.includes('13.webp')) altText = 'Rolling Dough catering truck';
+  else if (image.includes('14.webp')) altText = 'Kids enjoying pizza at birthday party';
+  else if (image.includes('15.webp')) altText = 'Rolling Dough logo and branding';
+  else if (image.includes('16.webp')) altText = 'Pizza chef preparing dough';
+  else if (image.includes('17.webp')) altText = 'Event guests with pizza plates';
+  else if (image.includes('18.webp')) altText = 'Woodfire pizza close-up';
+  else if (image.includes('19.webp')) altText = 'Rolling Dough catering at night event';
   else altText = 'Rolling Dough event catering photo';
 
   return (
@@ -58,7 +58,7 @@ const Gallery = () => {
       title: 'Event Gallery - Rolling Dough Woodfire Pizza Catering',
       description: 'Browse our portfolio of stunning events and delicious woodfire pizzas. See the quality and variety of our catering services in Perth.',
       url: 'https://rollingdough.com.au/gallery',
-      image: 'https://rollingdough.com.au/hero.png',
+      image: 'https://rollingdough.com.au/hero.webp',
       keywords: 'pizza gallery, event photos, catering portfolio, woodfire pizza Perth, event photography'
     });
     scrollToTop();
@@ -66,25 +66,25 @@ const Gallery = () => {
 
   // Gallery images with orientation: 'landscape' or 'portrait'
   const galleryImages = [
-    { src: '/1.jpg', orientation: 'landscape' },
-    { src: '/2.jpg', orientation: 'landscape' },
-    { src: '/3.jpg', orientation: 'landscape' },
-    { src: '/4.jpg', orientation: 'portrait' },
-    { src: '/5.jpg', orientation: 'landscape' },
-    { src: '/6.jpg', orientation: 'landscape' },
-    { src: '/7.jpg', orientation: 'landscape' },
-    { src: '/8.jpg', orientation: 'portrait' },
-    { src: '/9.jpg', orientation: 'landscape' },
-    { src: '/10.jpg', orientation: 'landscape' },
-    { src: '/11.jpg', orientation: 'portrait' },
-    { src: '/12.jpg', orientation: 'landscape' },
-    { src: '/13.jpg', orientation: 'landscape' },
-    { src: '/14.jpg', orientation: 'portrait' },
-    { src: '/15.png', orientation: 'landscape' },
-    { src: '/16.jpg', orientation: 'landscape' },
-    { src: '/17.jpg', orientation: 'portrait' },
-    { src: '/18.jpg', orientation: 'landscape' },
-    { src: '/19.jpg', orientation: 'landscape' },
+    { src: '/1.webp', orientation: 'landscape' },
+    { src: '/2.webp', orientation: 'landscape' },
+    { src: '/3.webp', orientation: 'landscape' },
+    { src: '/4.webp', orientation: 'portrait' },
+    { src: '/5.webp', orientation: 'landscape' },
+    { src: '/6.webp', orientation: 'landscape' },
+    { src: '/7.webp', orientation: 'landscape' },
+    { src: '/8.webp', orientation: 'portrait' },
+    { src: '/9.webp', orientation: 'landscape' },
+    { src: '/10.webp', orientation: 'landscape' },
+    { src: '/11.webp', orientation: 'portrait' },
+    { src: '/12.webp', orientation: 'landscape' },
+    { src: '/13.webp', orientation: 'landscape' },
+    { src: '/14.webp', orientation: 'portrait' },
+    { src: '/15.webp', orientation: 'landscape' },
+    { src: '/16.webp', orientation: 'landscape' },
+    { src: '/17.webp', orientation: 'portrait' },
+    { src: '/18.webp', orientation: 'landscape' },
+    { src: '/19.webp', orientation: 'landscape' },
   ];
 
   return (

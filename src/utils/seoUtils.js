@@ -6,7 +6,7 @@ export const updateMetaTags = (config) => {
   const {
     title,
     description,
-    image = 'https://rollingdough.com.au/hero.png',
+    image = 'https://rollingdough.com.au/hero.webp',
     url = 'https://rollingdough.com.au/',
     type = 'website',
     keywords = 'woodfire pizza catering, Perth events, corporate catering, wedding catering'
