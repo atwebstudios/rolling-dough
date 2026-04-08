@@ -23,7 +23,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed opacity-80 text-center md:text-left font-delius">
-              Premium woodfire pizza catering for events across Perth. Fresh ingredients, authentic flavors, and unforgettable experiences since 2019.
+              Premium woodfire pizza catering for events across Perth. Fresh ingredients, authentic flavors, and unforgettable experiences since 2020.
             </p>
           </div>
 
