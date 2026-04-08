@@ -14,7 +14,7 @@ const Home = () => {
       title: 'Rolling Dough - Premium Woodfire Pizza Catering in Perth',
       description: 'Premium woodfire pizza catering for events in Perth. Authentic Italian-inspired pizzas for weddings, corporate events, and celebrations. Book your event now!',
       url: 'https://rollingdough.com.au/',
-      image: 'https://rollingdough.com.au/hero.png',
+      image: 'https://rollingdough.com.au/hero.webp',
       keywords: 'woodfire pizza catering, Perth events, pizza catering, wedding catering, corporate catering, event food'
     });
     scrollToTop();
@@ -27,7 +27,7 @@ const Home = () => {
         {/* Hero Section */}
         <section 
           className="relative w-full h-[60vh] sm:h-[80vh] overflow-hidden mt-0 sm:mt-2 lg:mt-6 bg-cover bg-center"
-          style={{ backgroundImage: "url('/hero.png')" }}
+          style={{ backgroundImage: "url('/hero.webp')" }}
         >
           <div className="relative w-full h-full">
             {/* Background Overlay */}
@@ -128,8 +128,8 @@ const Home = () => {
                   Our Classic Package allows each guest to savor their personal, gourmet pizza for just $26 (+ GST). Perfect for diverse gatherings where individual taste reigns supreme, ensuring every palate is delighted.
                 </p>
                 <a
-                  href="/classic_pizza_menu.png"
-                  download="Rolling_Dough_Classic_Menu.png"
+                  href="/classic_pizza_menu.webp"
+                  download="Rolling_Dough_Classic_Menu.webp"
                   onClick={(e) => e.stopPropagation()}
                   className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 border-2 border-green-600 text-green-700 text-sm font-semibold rounded-full hover:bg-green-600 hover:text-white transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
                 >
@@ -149,8 +149,8 @@ const Home = () => {
                   For true pizza aficionados, the Unlimited Indulgence offers two hours of endless pizza delight, including our signature dessert pizzas. Priced at $28 per guest (+ GST), it's an invitation to revel in a grand feast of varied flavors.
                 </p>
                 <a
-                  href="/unlimited_pizza_menu.png"
-                  download="Rolling_Dough_Unlimited_Menu.png"
+                  href="/unlimited_pizza_menu.webp"
+                  download="Rolling_Dough_Unlimited_Menu.webp"
                   onClick={(e) => e.stopPropagation()}
                   className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 border-2 border-green-600 text-green-700 text-sm font-semibold rounded-full hover:bg-green-600 hover:text-white transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
                 >
@@ -251,7 +251,7 @@ const Home = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
               {/* Stat 1 */}
               <div className="text-center p-6 rounded-lg bg-linear-to-br from-blue-50 to-blue-100 hover:shadow-lg transition-shadow duration-300">
-                <p className="text-5xl sm:text-6xl font-bold text-green-600 mb-2">5+</p>
+                <p className="text-5xl sm:text-6xl font-bold text-green-600 mb-2">{new Date().getFullYear() - 2020}+</p>
                 <p className="text-gray-700 font-semibold">Years Experience</p>
                 <p className="text-sm text-gray-600 mt-1 font-delius">Serving Perth with excellence</p>
               </div>
@@ -336,7 +336,7 @@ const Home = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-gray-800">Affordable Pricing</h3>
-                  <p className="text-gray-600 text-sm mt-1 font-delius">Transparent rates from $25/head</p>
+                  <p className="text-gray-600 text-sm mt-1 font-delius">Transparent rates from $28/head</p>
                 </div>
               </div>
 

@@ -13,7 +13,7 @@ const NotFound = () => {
       title: 'Page Not Found - Rolling Dough',
       description: 'The page you are looking for does not exist. Return to Rolling Dough\'s main site to explore our woodfire pizza catering services.',
       url: 'https://rollingdough.com.au/404',
-      image: 'https://rollingdough.com.au/hero.png',
+      image: 'https://rollingdough.com.au/hero.webp',
       keywords: 'page not found, 404 error, rolling dough'
     });
     scrollToTop();
