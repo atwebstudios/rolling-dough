@@ -46,7 +46,7 @@ const About = () => {
                     With over 20 years of experience in making wood-fired pizza, I've always received wonderful feedback from my customers. This passion inspired me to start Rolling Dough, and I'm proud to have been successfully running it for the last four years. At the beginning, I worked in different restaurants to gain experience and perfect my craft.
                   </p>
                   <p>
-                    Rolling Dough started with a simple mission: bringing authentic, delicious wood-fired pizza to Perth's vibrant events community. Over the past 4 years, we've catered hundreds of events across Perth, from intimate backyard gatherings to large corporate functions. Every event is an opportunity to create lasting memories through exceptional food and service.
+                    Rolling Dough started with a simple mission: bringing authentic, delicious wood-fired pizza to Perth's vibrant events community. Over the past {new Date().getFullYear() - 2020} years, we've catered hundreds of events across Perth, from intimate backyard gatherings to large corporate functions. Every event is an opportunity to create lasting memories through exceptional food and service.
                   </p>
                   <p>
                     My goal is to give the best memorable taste and experience to every customer and see the smile on their face. Our success comes from a simple philosophy: premium ingredients, expert craftsmanship, and genuine care for every guest. We're not just serving pizza—we're creating moments.
@@ -176,7 +176,7 @@ const About = () => {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-gray-800 mb-2">Competitive Pricing</h3>
-                  <p className="text-gray-600 text-sm font-delius">Premium quality at great value. $28 per head (unlimited) or $20 per head (limited selection), with $800 minimum.</p>
+                  <p className="text-gray-600 text-sm font-delius">Premium quality at great value. $28 per head (unlimited) or $26 per head (limited selection), with $800 minimum.</p>
                 </div>
               </div>
 
