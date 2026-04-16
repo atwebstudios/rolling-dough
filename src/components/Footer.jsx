@@ -93,9 +93,9 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Rolling Dough. All rights reserved.
           </p>
           <p className="text-xs opacity-60">
-            Made with <span className="text-red-400">&hearts;</span> by{' '}
+            Designed & developed by <span className="text-red-400">&hearts;</span> by{' '}
             <a
-              href="https://atwebstudios.com"
+              href="https://atwebstudios.com.au"
               target="_blank"
               rel="noopener noreferrer"
               style={{color: 'var(--color-accent)'}}
