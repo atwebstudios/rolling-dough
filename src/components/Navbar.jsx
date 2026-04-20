@@ -87,14 +87,14 @@ const Navbar = () => {
       </nav>
 
       <div
-        className={`fixed inset-0 bg-[#1a2922]/60 transition-opacity duration-300 lg:hidden z-40 top-16 ${
+        className={`fixed inset-0 bg-[#1a2922]/60 transition-opacity duration-300 lg:hidden z-40 top-20 ${
           isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsMenuOpen(false)}
       />
 
       <aside
-        className={`fixed top-16 right-0 h-[calc(100vh-64px)] w-48 bg-linear-to-b from-green-50 to-green-100 shadow-2xl lg:hidden transform transition-all duration-300 ease-out z-50 ${
+        className={`fixed top-20 right-0 h-[calc(100vh-80px)] w-48 bg-linear-to-b from-green-50 to-green-100 shadow-2xl lg:hidden transform transition-all duration-300 ease-out z-50 ${
           isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
         }`}
         id="mobile-nav-menu"

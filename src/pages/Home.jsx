@@ -128,8 +128,8 @@ const Home = () => {
                   Our Classic Package allows each guest to savor their personal, gourmet pizza for just $26 (+ GST). Perfect for diverse gatherings where individual taste reigns supreme, ensuring every palate is delighted.
                 </p>
                 <a
-                  href="/classic_pizza_menu.webp"
-                  download="Rolling_Dough_Classic_Menu.webp"
+                  href="/classic_pizza_menu.png"
+                  download="Rolling_Dough_Classic_Menu.png"
                   onClick={(e) => e.stopPropagation()}
                   className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 border-2 border-green-600 text-green-700 text-sm font-semibold rounded-full hover:bg-green-600 hover:text-white transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
                 >
@@ -149,8 +149,8 @@ const Home = () => {
                   For true pizza aficionados, the Unlimited Indulgence offers two hours of endless pizza delight, including our signature dessert pizzas. Priced at $28 per guest (+ GST), it's an invitation to revel in a grand feast of varied flavors.
                 </p>
                 <a
-                  href="/unlimited_pizza_menu.webp"
-                  download="Rolling_Dough_Unlimited_Menu.webp"
+                  href="/unlimited_pizza_menu.png"
+                  download="Rolling_Dough_Unlimited_Menu.png"
                   onClick={(e) => e.stopPropagation()}
                   className="inline-flex items-center gap-2 mt-5 px-5 py-2.5 border-2 border-green-600 text-green-700 text-sm font-semibold rounded-full hover:bg-green-600 hover:text-white transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
                 >
