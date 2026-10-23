@@ -389,7 +389,7 @@ const ContactUs = () => {
                         error={fieldErrors.package}
                         options={[
                           { value: '', label: 'Select a package' },
-                          { value: 'Classic Package - $26/Person (+ GST)', label: 'Classic Package - $26/Person (+ GST)' },
+                          { value: 'Classic Package - $25/Person (+ GST)', label: 'Classic Package - $25/Person (+ GST)' },
                           { value: 'Unlimited Pizza - $28/Person (+ GST)', label: 'Unlimited Pizza - $28/Person (+ GST)' },
                           { value: 'Event Special - Pricing upon request', label: 'Event Special - Pricing upon request' }
                         ]}

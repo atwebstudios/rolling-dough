@@ -2,6 +2,20 @@
 
 ---
 
+## 📅 October 23, 2026
+
+### ✅ Updated Classic Package Price & Removed Download Menu Buttons
+- **Changes**:
+  - Updated Classic Package price from $26 to $25 per person (+ GST) across the site (`Home.jsx`, `ContactUs.jsx`, `About.jsx`, and `README.md`).
+  - Removed "Download Menu" buttons from both the Classic Package and Unlimited Pizza cards in `Home.jsx`.
+- **Files Modified**:
+  - `/src/pages/Home.jsx`
+  - `/src/pages/ContactUs.jsx`
+  - `/src/pages/About.jsx`
+  - `/README.md`
+
+---
+
 ## 📅 November 27, 2025 - 15:30 UTC
 
 ### ✅ Refactored Font Usage: Headings Bold + Body Delius

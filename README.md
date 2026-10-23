@@ -22,7 +22,6 @@ Website for **Rolling Dough**, a premium woodfire pizza catering business based 
 - **Event booking form** — full validation, package selection, add-ons (Garlic Bread, Bruschetta, Vegan, Gluten Free), custom date picker and dropdown
 - **Serverless email handler** (`/api/send-email`) — sends inquiry to the business and a confirmation email to the customer via Resend
 - **Rate limiting** — max 20 submissions per IP per hour
-- **Menu downloads** — Classic and Unlimited pizza menus downloadable as images directly from the event package cards
 - **Gallery** — full photo gallery of past events
 - **SEO** — dynamic meta tags, sitemap, robots.txt, Open Graph tags per page
 - **Responsive design** — mobile-first layout with animated mobile nav
@@ -143,8 +142,8 @@ Push to `main` to trigger a production deploy.
 
 | Package | Price | Details |
 |---|---|---|
-| Classic | $22 / person + GST | Personal gourmet pizza per guest |
-| Unlimited | $25 / person + GST | 2 hours of unlimited pizza including dessert pizzas |
+| Classic | $25 / person + GST | Personal gourmet pizza per guest |
+| Unlimited | $28 / person + GST | 2 hours of unlimited pizza including dessert pizzas |
 
 > Minimum event size: **30 guests**  
 > Public holiday surcharge: **15%**

@@ -176,7 +176,7 @@ const About = () => {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-gray-800 mb-2">Competitive Pricing</h3>
-                  <p className="text-gray-600 text-sm font-delius">Premium quality at great value. $28 per head (unlimited) or $26 per head (limited selection), with $800 minimum.</p>
+                  <p className="text-gray-600 text-sm font-delius">Premium quality at great value. $28 per head (unlimited) or $25 per head (limited selection), with $800 minimum.</p>
                 </div>
               </div>
 
